@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let headersList = {
+            "Accept": "*/*",
+            "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+            "Content-Type": "application/json"
+        }
+
+        let bodyContent = JSON.stringify({
+            "routing": "LoginService",
+            "version": "1-0-0",
+            "api-key": "1a33b5c052c0b8a9f64ca8e595860a1f",
+            "client_id": "DUMMYAPI"
+        });
+
+        fetch("http://localhost:8888/github/symmetrical-octo-goggles/deepcore/", {
+            method: "GET",
+            body: bodyContent,
+            headers: headersList
+        }).then(function(response) {
+            return response.text();
+        }).then(function(data) {
+            console.log(data);
+        })
+    </script>
+
+</body>
+</html>
