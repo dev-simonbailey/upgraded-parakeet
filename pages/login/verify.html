@@ -11,44 +11,34 @@
 <body>
     <script>
         let headersList = {
-            "Accept": "*/*",
-            "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-            "Content-Type": "application/json"
+        "Accept": "*/*",
+        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+        "Content-Type": "application/json"
         }
 
-        let bodyContent = {
-            "routing": "LoginService",
-            "action":"verify",
-            "version": "1-0-0",
-            "api-key": "1a33b5c052c0b8a9f64ca8e595860a1f",
-            "client_id": "DUMMYAPI",
-            "username": "evan.carlson",
-            "password": "d537bdfbf7456761"
-        };
-/*
         let bodyContent = JSON.stringify({
-            "routing": "LoginService",
-            "endpoint":"verify",
-            "version": "1-0-0",
+            "route":"LoginService",
+            "action":"verify",
+            "version":"1-0-1",
             "api-key": "1a33b5c052c0b8a9f64ca8e595860a1f",
             "client_id": "DUMMYAPI",
             "username": "evan.carlson",
             "password": "d537bdfbf7456761"
         });
-*/
-        bodyContent.version = "1-0-1";
 
-        fetch("http://localhost:8888/github/symmetrical-octo-goggles/deepcore/", {
-            method: "POST",
-            body: JSON.stringify(bodyContent),
-            headers: headersList
+        //        bodyContent.version = "1-0-1";
+
+        fetch("http://localhost:8888/github/symmetrical-octo-goggles/deepcore/", { 
+        method: "POST",
+        body: bodyContent,
+        headers: headersList
         }).then(function(response) {
-            return response.text();
+        return response.text();
         }).then(function(data) {
-            console.log(data);
+        console.log(data);
         })
 
-        console.log(bodyContent);
+        //console.log(bodyContent);
         
     </script>
 
